@@ -5,6 +5,8 @@ public class SensorDTO {
     private int humidity;
     private int luminosity;
 
+    public SensorDTO() {} // construtor vazio
+
     public SensorDTO(double temperature, int humidity, int luminosity) {
         this.temperature = temperature;
         this.humidity = humidity;
@@ -15,3 +17,4 @@ public class SensorDTO {
     public int getHumidity() { return humidity; }
     public int getLuminosity() { return luminosity; }
 }
+

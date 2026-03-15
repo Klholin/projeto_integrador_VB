@@ -10,13 +10,17 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.inject.Inject;
 import java.util.List;
 
 @Path("/sensors")
 public class SensorResource {
 
-    private SensorService sensorService = new SensorService();
-    private AlertService alertService = new AlertService();
+    @Inject
+    SensorService sensorService;
+
+    @Inject
+    AlertService alertService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,5 +29,4 @@ public class SensorResource {
         List<AlertDTO> alerts = alertService.checkAlerts(data);
         return new ResponseDTO(data, alerts);
     }
-
 }

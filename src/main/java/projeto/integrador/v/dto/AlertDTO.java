@@ -6,6 +6,8 @@ public class AlertDTO {
     private AlertType type;
     private String message;
 
+    public AlertDTO() {}
+
     public AlertDTO(AlertType type, String message) {
         this.type = type;
         this.message = message;

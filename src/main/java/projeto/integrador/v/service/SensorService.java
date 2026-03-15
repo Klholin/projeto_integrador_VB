@@ -1,10 +1,10 @@
 package projeto.integrador.v.service;
 
-// SensorService.java
-
+import jakarta.enterprise.context.ApplicationScoped;
 import projeto.integrador.v.dto.SensorDTO;
 import java.util.Random;
 
+@ApplicationScoped
 public class SensorService {
     private Random random = new Random();
 
