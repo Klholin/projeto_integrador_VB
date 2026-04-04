@@ -12,6 +12,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.inject.Inject;
 import java.util.List;
+import java.util.ArrayList;
 
 @Path("/sensors")
 public class SensorResource {
@@ -26,6 +27,12 @@ public class SensorResource {
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseDTO getData() {
         SensorDTO data = sensorService.generateMockData();
+
+        // Defensive null-check: if sensor data is null, return empty alerts instead of failing
+        if (data == null) {
+            return new ResponseDTO(null, new ArrayList<>());
+        }
+
         List<AlertDTO> alerts = alertService.checkAlerts(data);
         return new ResponseDTO(data, alerts);
     }
