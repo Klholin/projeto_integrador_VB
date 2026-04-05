@@ -13,6 +13,7 @@ public class SensorService {
         int humidity = 30 + random.nextInt(40);      // 30–70 %
         int luminosity = random.nextInt(101);        // 0–100 %
 
+        // Autoboxing will convert primitives to wrapper types expected by SensorDTO
         return new SensorDTO(temp, humidity, luminosity);
     }
 }
